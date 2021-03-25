@@ -1,9 +1,10 @@
-from flask_restplus import Namespace, Resource, fields
+from flask_restplus import Namespace, Resource
+
 from app.model.question2 import model
-from app.service.question2 import question2 as question2_service
+from app.service.question2 import Question2 as question2_service
 
 api = Namespace('question2', description='佣金问题')
-model = api.model('Comission', model=model)
+model = api.model('Commission', model=model)
 
 
 @api.route('/commission/<method_type>')

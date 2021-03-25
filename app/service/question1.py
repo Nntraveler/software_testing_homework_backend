@@ -1,7 +1,8 @@
 import datetime
+
+from app.common.commonUtil import df_update, df_read
 from app.csv.index import calendar as calender_index
 from app.csv.index import triangle as triangle_index
-from app.common.commonUtil import df_update, df_read
 
 
 def calendar_atom(arg_list):
@@ -22,11 +23,17 @@ def calendar_atom(arg_list):
     return str(_date + datetime.timedelta(days=1))
 
 
+def check_boundary(a, b, c):
+    if a > 200 or b > 200 or c > 200:
+        return False
+    if a <= 0 or b <= 0 or c <= 0:
+        return False
+    return True
+
+
 def triangle_atom_v1(arg_list):
     a, b, c = arg_list[0], arg_list[1], arg_list[2]
-    if a > 200 or b > 200 or c > 200:
-        return '数值越界'
-    if a <= 0 or b <= 0 or c <= 0:
+    if check_boundary(a, b, c):
         return '数值越界'
     if a + b > c and a + c > b and b + c > a:
         if a == b or a == c or b == c:
@@ -46,9 +53,7 @@ def triangle_atom_v1(arg_list):
 
 def triangle_atom_v2(arg_list):
     a, b, c = arg_list[0], arg_list[1], arg_list[2]
-    if a > 200 or b > 200 or c > 200:
-        return '数值越界'
-    if a <= 0 or b <= 0 or c <= 0:
+    if check_boundary(a, b, c):
         return '数值越界'
     if a + b > c and a + c > b and b + c > a:
         if a == b or a == c or b == c:
@@ -72,7 +77,7 @@ triangle_code_v = {
 }
 
 
-class question1:
+class Question1:
     def __init__(self):
         pass
 

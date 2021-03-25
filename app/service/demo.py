@@ -1,7 +1,7 @@
 from app.model.demo import MODELS
 
 
-class demo:
+class Demo:
     def __init__(self):
         pass
 

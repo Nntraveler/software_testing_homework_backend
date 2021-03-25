@@ -1,6 +1,7 @@
-from flask_restplus import Namespace, Resource, fields
+from flask_restplus import Namespace, Resource
+
 from app.model.question6 import model
-from app.service.question6 import question6 as question6_service
+from app.service.question6 import Question6 as question6_service
 
 api = Namespace('question6', description='打印机问题')
 model = api.model('Printer', model=model)

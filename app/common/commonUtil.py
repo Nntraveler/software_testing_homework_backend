@@ -1,4 +1,5 @@
 import datetime
+
 import pandas as pd
 
 
@@ -33,7 +34,7 @@ def df_update(df, csv_path, actual_outputs, tester_name):
     df = df.groupby(by=['Correctness'])['Correctness'].count()
     try:
         true_num = df[True]
-    except Exception as e:
+    except KeyError:
         true_num = 0
     return {'True': int(true_num), 'False': int(total_case_num - true_num),
             'accuracy': float(true_num / total_case_num)}
@@ -51,6 +52,3 @@ def df_read(csv_path, arg_start_label='TestCaseID', arg_end_label='ExpectedOutpu
     arg_start = df.columns.values.tolist().index(arg_start_label) + 1
     arg_end = df.columns.values.tolist().index(arg_end_label)
     return df, arg_start, arg_end
-
-
-

@@ -1,7 +1,8 @@
-from flask_restplus import Namespace, Resource, fields
-from app.model.question1 import triangle_model as q1_model
+from flask_restplus import Namespace, Resource
+
 from app.model.question1 import calender_model as q2_model
-from app.service.question1 import question1 as question1_service
+from app.model.question1 import triangle_model as q1_model
+from app.service.question1 import Question1 as question1_service
 
 api = Namespace('question1', description='三角形/万年历问题')
 q1_model = api.model('Triangle', model=q1_model)
@@ -35,7 +36,8 @@ class Triangle(Resource):
 
 @api.route('/calendar/<method_type>')
 @api.param('method_type',
-           'boundary | equivalence-weak-general ｜ equivalence-strong-general ｜ equivalence-weak-robust ｜ equivalence-strong-robust')
+           'boundary | equivalence-weak-general ｜ equivalence-strong-general ｜ '
+           'equivalence-weak-robust ｜ equivalence-strong-robust')
 @api.response(404, 'Method not found')
 class Calendar(Resource):
     @api.doc('Calendar Problem')

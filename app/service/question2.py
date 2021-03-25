@@ -1,11 +1,12 @@
-from app.csv.index import commission as commission_index
 from app.common.commonUtil import df_update, df_read
+from app.csv.index import commission as commission_index
 
 
 def commission_atom(arg_list):
     host_price, display_price, peripheral_price = 25, 30, 45
     host_num, display_num, peripheral_num = arg_list[0], arg_list[1], arg_list[2]
-    if host_num <= 0 or display_num <= 0 or peripheral_num <= 0 or host_num > 70 or display_num > 80 or peripheral_num > 90:
+    if host_num <= 0 or display_num <= 0 or peripheral_num <= 0 or \
+            host_num > 70 or display_num > 80 or peripheral_num > 90:
         return 'error', 'error'
     commission = host_num * host_price + display_num * display_price + peripheral_num * peripheral_price
     if commission <= 1000:
@@ -16,7 +17,7 @@ def commission_atom(arg_list):
         return commission, float('%.2f' % (commission * 0.2))
 
 
-class question2:
+class Question2:
     def __init__(self):
         pass
 

@@ -1,6 +1,7 @@
-from flask_restplus import Namespace, Resource, fields
+from flask_restplus import Namespace, Resource
+
 from app.model.demo import model
-from app.service.demo import demo as demo_service
+from app.service.demo import Demo as demo_service
 
 api = Namespace('demo_namespace', description='Demo Namespace')
 model = api.model('Demo Model', model)
@@ -26,7 +27,7 @@ class DemoModelList(Resource):
         return demo_service.create_model(api.payload), 201
 
 
-@api.route('/<id>')
+@api.route('/<int:id>')
 @api.param('id', 'The model identifier')
 @api.response(404, 'Model not found')
 class Cat(Resource):
@@ -38,5 +39,3 @@ class Cat(Resource):
         if result is None:
             api.abort(404)
         return result
-
-

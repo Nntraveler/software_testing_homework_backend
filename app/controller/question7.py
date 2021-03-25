@@ -1,6 +1,7 @@
-from flask_restplus import Namespace, Resource, fields
+from flask_restplus import Namespace, Resource
+
 from app.model.question7 import model
-from app.service.question7 import question7 as question7_service
+from app.service.question7 import Question7 as question7_service
 
 api = Namespace('question7', description='电信收费问题')
 model = api.model('Commission', model=model)

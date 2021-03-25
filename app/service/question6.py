@@ -10,7 +10,7 @@ from app.csv.index import printer as printer_index
 @author: doubleZ
 
 '''
-from state_machine import State, Event, acts_as_state_machine, after, before, InvalidStateTransition
+from state_machine import State, Event, acts_as_state_machine, InvalidStateTransition
 
 state_dir = {
     'Empty': 1,
@@ -54,10 +54,10 @@ class Printer:
     general_check_printer_end = Event(from_states=(empty, printing), to_state=failure)
 
 
-def transition(printer, event):
+def transition(event):
     try:
         event()
-    except InvalidStateTransition as err:
+    except InvalidStateTransition:
         print("Failure")
 
 
@@ -68,37 +68,37 @@ def printer_atom(arg_list):
 
     for cmd in command:
         if cmd == 'S':
-            transition(printer, printer.initialize)
+            transition(printer.initialize)
         elif cmd == '1':
             if printer.current_state == printer.alarming:
-                transition(printer, printer.alarm_ask_for_print)
+                transition(printer.alarm_ask_for_print)
             else:
-                transition(printer, printer.general_ask_for_print)
+                transition(printer.general_ask_for_print)
         elif cmd == '2':
             if printer.current_state == printer.printing:
-                transition(printer, printer.printing_print_end)
+                transition(printer.printing_print_end)
             else:
-                transition(printer, printer.general_print_end)
+                transition(printer.general_print_end)
         elif cmd == '3':
             if printer.current_state == printer.empty:
-                transition(printer, printer.empty_check_printer)
+                transition(printer.empty_check_printer)
             else:
-                transition(printer, printer.general_check_printer)
+                transition(printer.general_check_printer)
         elif cmd == '4':
             if printer.current_state == printer.alarming:
-                transition(printer, printer.alarm_check_printer_end)
+                transition(printer.alarm_check_printer_end)
             else:
-                transition(printer, printer.general_check_printer_end)
+                transition(printer.general_check_printer_end)
         elif cmd == 'E':
             if printer.current_state == printer.empty:
-                transition(printer, printer.empty_delete)
+                transition(printer.empty_delete)
             else:
-                transition(printer, printer.other_delete)
+                transition(printer.other_delete)
     final_state = printer.current_state
     return final_state
 
 
-class question6:
+class Question6:
     def __init__(self):
         pass
 

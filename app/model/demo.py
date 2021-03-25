@@ -9,4 +9,3 @@ model = {
 MODELS = [
     {'id': '1', 'content': 'content1'}
 ]
-

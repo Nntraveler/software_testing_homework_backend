@@ -1,7 +1,7 @@
-from flask_restplus import Namespace, Resource, fields
+from flask_restplus import Namespace, Resource
+
 from app.model.show import model
 from app.service.show import ShowCSV
-import flask
 
 api = Namespace('show_csv', description='csv展示')
 model = api.model('Show', model=model)

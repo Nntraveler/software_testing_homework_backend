@@ -1,10 +1,9 @@
-from app.csv.index import sales as sales_index
 from app.common.commonUtil import df_update, df_read
+from app.csv.index import sales as sales_index
 
 
 def sales_atom(arg_list):
     annual_sales, leave_days, rate_cash_to_account = arg_list[0], arg_list[1], arg_list[2]
-    zero = float('%.2f' % 0)
     if annual_sales < 0 or leave_days < 0 or rate_cash_to_account > 1 or rate_cash_to_account < 0:
         return 'error', 'error'
     if annual_sales > 200 and leave_days <= 10:
@@ -24,7 +23,7 @@ def sales_atom(arg_list):
         return commission_rate, float('%.2f' % result)
 
 
-class question8:
+class Question8:
     def __init__(self):
         pass
 

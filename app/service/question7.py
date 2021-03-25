@@ -1,5 +1,5 @@
-from app.csv.index import charge as charge_index
 from app.common.commonUtil import df_update, df_read
+from app.csv.index import charge as charge_index
 
 
 def charge_atom_v1(arg_list):
@@ -8,7 +8,8 @@ def charge_atom_v1(arg_list):
     talk_time_month, unpaid_num_year, unpaid_cost_across_year, pay_method = \
         arg_list[0], arg_list[1], arg_list[2], arg_list[3]
     cost = monthly_fee
-    if talk_time_month < 0 or talk_time_month > 44640 or unpaid_num_year < 0 or unpaid_num_year > 11 or pay_method not in pay_method_list or unpaid_cost_across_year < 0 or unpaid_cost_across_year > 500:
+    if talk_time_month < 0 or talk_time_month > 44640 or unpaid_num_year < 0 or unpaid_num_year > 11 \
+            or pay_method not in pay_method_list or unpaid_cost_across_year < 0 or unpaid_cost_across_year > 500:
         return 'error'
     if talk_time_month <= 60 and unpaid_num_year <= 1:
         cost += talk_time_month * cost_per_min * 0.01
@@ -32,7 +33,8 @@ def charge_atom_v2(arg_list):
     talk_time_month, unpaid_num_year, unpaid_cost_across_year, pay_method = \
         arg_list[0], arg_list[1], arg_list[2], arg_list[3]
     cost = monthly_fee
-    if talk_time_month < 0 or talk_time_month > 44640 or unpaid_num_year < 0 or unpaid_num_year > 11 or pay_method not in pay_method_list or unpaid_cost_across_year < 0 or unpaid_cost_across_year > 500:
+    if talk_time_month < 0 or talk_time_month > 44640 or unpaid_num_year < 0 or unpaid_num_year > 11 or \
+            pay_method not in pay_method_list or unpaid_cost_across_year < 0 or unpaid_cost_across_year > 500:
         return 'error'
     if talk_time_month <= 60 and unpaid_num_year <= 1:
         cost += talk_time_month * cost_per_min * (1 - 0.01)
@@ -56,7 +58,7 @@ code_v = {
 }
 
 
-class question7:
+class Question7:
     def __init__(self):
         pass
 
