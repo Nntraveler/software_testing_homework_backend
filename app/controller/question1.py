@@ -2,14 +2,14 @@ from flask_restplus import Namespace, Resource
 
 from app.model.question1 import calender_model as q2_model
 from app.model.question1 import triangle_model as q1_model
-from app.service.question1 import Question1 as question1_service
+from app.service.question1 import Question1
 
 api = Namespace('question1', description='三角形/万年历问题')
 q1_model = api.model('Triangle', model=q1_model)
 q2_model = api.model('Calender', model=q2_model)
 
 
-@api.route('/triangle/<method_type>')
+@api.route('/triangle/<method_type>')  # NOQA
 @api.param('method_type', 'boundary | equivalence')
 @api.response(404, 'Method not found')
 class Triangle(Resource):
@@ -18,10 +18,10 @@ class Triangle(Resource):
         """
         三角形问题
         """
-        return question1_service.triangle(method_type)
+        return Question1.triangle(method_type)
 
 
-@api.route('/triangle/<method_type>/<code_version>')
+@api.route('/triangle/<method_type>/<code_version>')  # NOQA
 @api.param('method_type', 'boundary | equivalence')
 @api.param('code_version', 'v1 | v2')
 @api.response(404, 'Method not found')
@@ -31,10 +31,10 @@ class Triangle(Resource):
         """
         版本-三角形问题
         """
-        return question1_service.triangle(method_type, code_version)
+        return Question1.triangle(method_type, code_version)
 
 
-@api.route('/calendar/<method_type>')
+@api.route('/calendar/<method_type>')  # NOQA
 @api.param('method_type',
            'boundary | equivalence-weak-general ｜ equivalence-strong-general ｜ '
            'equivalence-weak-robust ｜ equivalence-strong-robust')
@@ -45,7 +45,7 @@ class Calendar(Resource):
         """
         万年历问题
         """
-        return question1_service.calendar(method_type)
+        return Question1.calendar(method_type)
 
 
 @api.route('/triangle/')
@@ -56,10 +56,10 @@ class TriangleBasic(Resource):
         """
         三角形问题的基础实现
         """
-        return question1_service.triangle_method_test(api.payload)
+        return Question1.triangle_method_test(api.payload)
 
 
-@api.route('/triangle/<code_version>')
+@api.route('/triangle/<code_version>')  # NOQA
 @api.param('code_version', 'v1 | v2')
 class TriangleBasic(Resource):
     @api.doc('Triangle Problem Basic Method')
@@ -68,7 +68,7 @@ class TriangleBasic(Resource):
         """
         版本-三角形问题的基础实现
         """
-        return question1_service.triangle_method_test(api.payload, code_version)
+        return Question1.triangle_method_test(api.payload, code_version)
 
 
 @api.route('/calendar/')
@@ -79,4 +79,4 @@ class CalenderBasic(Resource):
         """
         万年历问题的基础实现
         """
-        return question1_service.calendar_method_test(api.payload)
+        return Question1.calendar_method_test(api.payload)

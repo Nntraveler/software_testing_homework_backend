@@ -1,13 +1,13 @@
 from flask_restplus import Namespace, Resource
 
 from app.model.question7 import model
-from app.service.question7 import Question7 as question7_service
+from app.service.question7 import Question7 as question7Service
 
 api = Namespace('question7', description='电信收费问题')
 model = api.model('Commission', model=model)
 
 
-@api.route('/charge/<method_type>')
+@api.route('/charge/<method_type>')  # NOQA
 @api.param('method_type', 'boundary | equivalence | decision | final')
 @api.response(404, 'Method not found')
 class Calendar(Resource):
@@ -16,7 +16,7 @@ class Calendar(Resource):
         """
         电信收费问题
         """
-        return question7_service.charge(method_type)
+        return question7Service.charge(method_type)
 
 
 @api.route('/charge/')
@@ -27,10 +27,10 @@ class CalenderBasic(Resource):
         """
         电信收费问题的基础实现
         """
-        return question7_service.charge_method_test(api.payload)
+        return question7Service.charge_method_test(api.payload)
 
 
-@api.route('/charge/<code_version>')
+@api.route('/charge/<code_version>')  # NOQA
 @api.param('code_version', 'v1 | v2')
 class CalenderBasic(Resource):
     @api.doc('Charge Problem Basic Method')
@@ -39,10 +39,10 @@ class CalenderBasic(Resource):
         """
         版本-电信收费问题的基础实现
         """
-        return question7_service.charge_method_test(api.payload, code_version)
+        return question7Service.charge_method_test(api.payload, code_version)
 
 
-@api.route('/charge/<method_type>/<code_version>')
+@api.route('/charge/<method_type>/<code_version>')  # NOQA
 @api.param('method_type', 'boundary | equivalence | decision')
 @api.param('code_version', 'v1 | v2')
 @api.response(404, 'Method not found')
@@ -52,4 +52,4 @@ class Calendar(Resource):
         """
         版本-电信收费问题
         """
-        return question7_service.charge(method_type, code_version)
+        return question7Service.charge(method_type, code_version)
