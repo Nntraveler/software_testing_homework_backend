@@ -2,23 +2,6 @@
 ![python](https://img.shields.io/badge/python-3.7-green)![GroupInfo](https://img.shields.io/badge/Group%20Size-3-orange)
 
 
-
-## 目录
-
-[部署地址](#部署地址)
-
-[运行环境](#运行环境)
-
-[目录结构](#目录结构)
-
-[项目截图](#项目截图)
-
-## 部署地址
-
-前端：http://47.100.95.43:8083
-
-后端：http://106.15.194.220:1216
-
 ## 运行环境
 
 - python版本要求: python 3.7
@@ -51,28 +34,4 @@ pip install -r requirements.txt
 │       └── demo.py
 └── start.py                # 项目启动文件
 ```
-
-## 项目截图
-
-### 后端
-
-![image-20200702204639892](images/csd/Readme.assets/image-20200702204639892.png)
-
-![image-20200702204710495](images/csd/Readme.assets/image-20200702204710495.png)
-
-![image-20200702204805166](images/csd/Readme.assets/image-20200702204805166.png)
-
-### 前端
-
-1. 参数测试
-
-![image-20200702205044725](images/csd/Readme.assets/image-20200702205044725.png)
-
-2. 预定义用例测试
-
-![image-20200702204929339](images/csd/Readme.assets/image-20200702204929339.png)
-
-3. 问题分析
-
-![image-20200702204958146](images/csd/Readme.assets/image-20200702204958146.png)
 
