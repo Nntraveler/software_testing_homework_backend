@@ -1,8 +1,10 @@
-from app.csv.index import csv_dir2
-from app.csv.index import csv_dir
-import pandas as pd
 import json
 from collections import OrderedDict
+
+import pandas as pd
+
+from app.csv.index import csv_dir
+from app.csv.index import csv_dir2
 
 
 class ShowCSV:

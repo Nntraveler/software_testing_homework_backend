@@ -118,5 +118,4 @@ class Question6:
         state = printer_atom([arg_list]).capitalize()
         return {'state': state_dir[state], 'description': state}
 
-
 # print(printer_atom(['S133']))
