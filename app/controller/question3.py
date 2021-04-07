@@ -1,9 +1,9 @@
 from flask_restplus import Namespace, Resource
 
-from app.model.question2 import model
-from app.service.question2 import Question2
+from app.model.question3 import model
+from app.service.question3 import Question3
 
-api = Namespace('question2', description='佣金问题')
+api = Namespace('question3', description='佣金问题')
 model = api.model('Commission', model=model)
 
 
@@ -16,7 +16,7 @@ class Calendar(Resource):
         """
         佣金问题
         """
-        return Question2.commission(method_type)
+        return Question3.commission(method_type)
 
 
 @api.route('/commission/')
@@ -27,4 +27,4 @@ class CalenderBasic(Resource):
         """
         佣金问题的基础实现
         """
-        return Question2.commission_method_test(api.payload)
+        return Question3.commission_method_test(api.payload)

@@ -17,7 +17,7 @@ def commission_atom(arg_list):
         return commission, float('%.2f' % (commission * 0.2))
 
 
-class Question2:
+class Question3:
     def __init__(self):
         pass
 

@@ -12,22 +12,14 @@ csv_dir = {
     'printer': ['printer', 'printer-robust']
 }
 
-calendar = {
-    'boundary': BASE_DIR + '/q1/calendar-boundary.csv',
-    'equivalence-weak-general': BASE_DIR + '/q1/calendar-equivalent-weak-general.csv',
-    'equivalence-strong-general': BASE_DIR + '/q1/calendar-equivalent-strong-general.csv',
-    'equivalence-weak-robust': BASE_DIR + '/q1/calendar-equivalent-weak-robust.csv',
-    'equivalence-strong-robust': BASE_DIR + '/q1/calendar-equivalent-strong-robust.csv'
-}
-
 triangle = {
     'boundary': BASE_DIR + '/q1/triangle-boundary.csv',
     'equivalence': BASE_DIR + '/q1/triangle-equivalent.csv'
 }
 
 commission = {
-    'boundary-input': BASE_DIR + '/q2/commission-boundary.csv',
-    'boundary-output': BASE_DIR + '/q2/commission-boundary-output.csv'
+    'boundary-input': BASE_DIR + '/q3/commission-boundary.csv',
+    'boundary-output': BASE_DIR + '/q3/commission-boundary-output.csv'
 }
 
 charge = {
@@ -51,7 +43,6 @@ printer = {
 }
 
 csv_dir2 = {
-    'calendar': calendar,
     'triangle': triangle,
     'commission': commission,
     'charge': charge,
