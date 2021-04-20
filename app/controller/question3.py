@@ -10,7 +10,7 @@ model = api.model('Commission', model=model)
 @api.route('/commission/<method_type>')  # NOQA
 @api.param('method_type', 'boundary-input | boundary-output')
 @api.response(404, 'Method not found')
-class Calendar(Resource):
+class Commission(Resource):
     @api.doc('Commission Problem')
     def get(self, method_type):
         """
@@ -20,7 +20,7 @@ class Calendar(Resource):
 
 
 @api.route('/commission/')
-class CalenderBasic(Resource):
+class CommissionBasic(Resource):
     @api.doc('Commission Problem Basic Method')
     @api.expect(model)
     def post(self):

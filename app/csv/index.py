@@ -9,7 +9,6 @@ csv_dir = {
     'commission': ['boundary-input', 'boundary-output'],
     'charge': ['boundary', 'equivalence', 'decision'],
     'sales': ['statement', 'judge', 'condition', 'judge-condition', 'condition-combination'],
-    'printer': ['printer', 'printer-robust']
 }
 
 triangle = {
@@ -23,10 +22,10 @@ commission = {
 }
 
 charge = {
-    'boundary': BASE_DIR + '/q7/charge-boundary.csv',
-    'equivalence': BASE_DIR + '/q7/charge-equivalence.csv',
-    'decision': BASE_DIR + '/q7/charge-decision.csv',
-    'final': BASE_DIR + '/q7/charge.csv'
+    'boundary': BASE_DIR + '/q6/charge-boundary.csv',
+    'equivalence': BASE_DIR + '/q6/charge-equivalence.csv',
+    'decision': BASE_DIR + '/q6/charge-decision.csv',
+    'final': BASE_DIR + '/q6/charge.csv'
 }
 
 sales = {
@@ -37,9 +36,12 @@ sales = {
     'condition-combination': BASE_DIR + '/q8/sales-condition-combination-cov.csv'
 }
 
-printer = {
-    'printer': BASE_DIR + '/q6/printer-transition-tree.csv',
-    'printer-robust': BASE_DIR + '/q6/printer-transition-tree-robust.csv'
+calendar = {
+    'boundary': BASE_DIR + '/q1/calendar-boundary.csv',
+    'equivalence-weak-general': BASE_DIR + '/q1/calendar-equivalent-weak-general.csv',
+    'equivalence-strong-general': BASE_DIR + '/q1/calendar-equivalent-strong-general.csv',
+    'equivalence-weak-robust': BASE_DIR + '/q1/calendar-equivalent-weak-robust.csv',
+    'equivalence-strong-robust': BASE_DIR + '/q1/calendar-equivalent-strong-robust.csv'
 }
 
 csv_dir2 = {
@@ -47,5 +49,4 @@ csv_dir2 = {
     'commission': commission,
     'charge': charge,
     'sales': sales,
-    'printer': printer
 }
