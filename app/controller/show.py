@@ -7,15 +7,22 @@ api = Namespace('show_csv', description='csv展示')
 model = api.model('Show', model=model)
 
 
-@api.route('/')
-class CalenderBasic(Resource):
+@api.route('/csv/<problem_num>/<method_type>')  # NOQA
+@api.param('problem_num', 'triangle...')
+@api.param('method_type', 'boundary | equivalence | decision | final')
+@api.response(404, 'Method not found')
+class CsvGetter(Resource):
+
     @api.doc('Display CSV Table')
-    @api.expect(model)
-    def post(self):
+    def get(self, problem_num, method_type):
         """
         展示CSV表格
         """
-        return ShowCSV.get_csv(api.payload)
+        return ShowCSV.get_csv(problem_num, method_type)
+
+
+@api.route('/')
+class CalenderBasic(Resource):
 
     @api.doc('Get Problem Item')
     def get(self):

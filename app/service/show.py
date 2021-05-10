@@ -16,6 +16,12 @@ class ShowCSV:
         temp_dict = json.loads(temp_json, object_pairs_hook=OrderedDict)
         return temp_dict
 
+    def get_csv(problem, method_type):
+        df = pd.read_csv(csv_dir2[problem][method_type])
+        temp_json = df.to_json(orient='records')
+        temp_dict = json.loads(temp_json, object_pairs_hook=OrderedDict)
+        return temp_dict
+
     @staticmethod
     def get_csv_dir():
         return csv_dir
