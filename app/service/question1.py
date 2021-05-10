@@ -12,7 +12,7 @@ def check_boundary(a, b, c):
 
 def triangle_atom_v1(arg_list):
     a, b, c = arg_list[0], arg_list[1], arg_list[2]
-    if check_boundary(a, b, c):
+    if not check_boundary(a, b, c):
         return '数值越界'
     if a + b > c and a + c > b and b + c > a:
         if a == b or a == c or b == c:
@@ -32,7 +32,7 @@ def triangle_atom_v1(arg_list):
 
 def triangle_atom_v2(arg_list):
     a, b, c = arg_list[0], arg_list[1], arg_list[2]
-    if check_boundary(a, b, c):
+    if not check_boundary(a, b, c):
         return '数值越界'
     if a + b > c and a + c > b and b + c > a:
         if a == b or a == c or b == c:

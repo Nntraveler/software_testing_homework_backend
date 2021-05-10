@@ -37,11 +37,11 @@ sales = {
 }
 
 calendar = {
-    'boundary': BASE_DIR + '/q1/calendar-boundary.csv',
-    'equivalence-weak-general': BASE_DIR + '/q1/calendar-equivalent-weak-general.csv',
-    'equivalence-strong-general': BASE_DIR + '/q1/calendar-equivalent-strong-general.csv',
-    'equivalence-weak-robust': BASE_DIR + '/q1/calendar-equivalent-weak-robust.csv',
-    'equivalence-strong-robust': BASE_DIR + '/q1/calendar-equivalent-strong-robust.csv'
+    'boundary': BASE_DIR + '/q8/calendar-boundary.csv',
+    'equivalence-weak-general': BASE_DIR + '/q8/calendar-equivalent-weak-general.csv',
+    'equivalence-strong-general': BASE_DIR + '/q8/calendar-equivalent-strong-general.csv',
+    'equivalence-weak-robust': BASE_DIR + '/q8/calendar-equivalent-weak-robust.csv',
+    'equivalence-strong-robust': BASE_DIR + '/q8/calendar-equivalent-strong-robust.csv'
 }
 
 csv_dir2 = {
