@@ -19,6 +19,19 @@ class Commission(Resource):
         return Question3.commission(method_type)
 
 
+@api.route('/commission/<method_type>/<code_version>')  # NOQA
+@api.param('method_type', 'boundary-input | boundary-output')
+@api.param('code_version', 'v1 | v2')
+@api.response(404, 'Method not found')
+class Commission(Resource):
+    @api.doc('Commission Problem')
+    def get(self, method_type, code_version):
+        """
+        版本-三角形问题
+        """
+        return Question3.commission(method_type, code_version)
+
+
 @api.route('/commission/')
 class CommissionBasic(Resource):
     @api.doc('Commission Problem Basic Method')

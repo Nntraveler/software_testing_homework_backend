@@ -21,6 +21,21 @@ class Calendar(Resource):
         return question8Service.calendar(method_type)
 
 
+@api.route('/calendar/<method_type>/<code_version>')  # NOQA
+@api.param('method_type',
+           'boundary | equivalence-weak-general ｜ equivalence-strong-general ｜ equivalence-weak-robust ｜ '
+           'equivalence-strong-robust')
+@api.param('code_version', 'v1 | v2')
+@api.response(404, 'Method not found')
+class Calendar(Resource):
+    @api.doc('Calendar Problem')
+    def get(self, method_type, code_version):
+        """
+        版本-万年历问题
+        """
+        return question8Service.calendar(method_type, code_version)
+
+
 @api.route('/calendar/')
 class CalenderBasic(Resource):
     @api.doc('Calender Problem Basic Method')
